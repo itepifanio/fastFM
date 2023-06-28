@@ -11,6 +11,8 @@ ext_modules = [
                             'fastFM-core/externals/CXSparse/Include/',
               numpy.get_include()])]
 
+python_versions = "2.7 3 3.2 3.3 3.4 3.5 3.6 3.7 3.8 3.9 3.10 3.11".split()
+
 setup(
     name='fastFM',
     cmdclass={'build_ext': build_ext},
@@ -20,7 +22,7 @@ setup(
 
     package_data={'fastFM': ['fastFM/*.pxd']},
 
-    version='0.2.11',
+    version='0.3.0',
     url='http://ibayer.github.io/fastFM',
     author='Immanuel Bayer',
     author_email='immanuel.bayer@uni-konstanz.de',
@@ -43,19 +45,7 @@ setup(
 
         'License :: OSI Approved :: BSD License',
         'Operating System :: Unix',
-
-        # Specify the Python versions you support here. In particular, ensure
-        # that you indicate whether you support Python 2, Python 3 or both.
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.6',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.2',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
-    ],
+    ] + [f'Programming Language :: Python :: {ver}' for ver in python_versions],
 
     # List run-time dependencies here.  These will be installed by pip when
     # your project is installed. For an analysis of "install_requires" vs pip's
