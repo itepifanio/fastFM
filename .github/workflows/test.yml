@@ -33,9 +33,9 @@ jobs:
       - name: Install
         run: |
           git submodule update --init --recursive
-          pip install -r requirements.txt
-          pip list
-          python -m pip install cython
+          python -m pip install --upgrade pip
+          if [ "$RUNNER_OS" = "Linux" ]; then sudo apt-get update -qq; sudo apt-get install -y libopenblas-dev; fi
+          pip install --no-binary :all: cython numpy pandas scipy scikit-learn pytest
           make TARGET=NEHALEM
           pip install .
 
