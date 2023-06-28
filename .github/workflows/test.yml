@@ -33,6 +33,7 @@ jobs:
       - name: Install
         run: |
           git submodule update --init --recursive
+          pip install -r requirements.txt
           make TARGET=NEHALEM
           pip install .
 
