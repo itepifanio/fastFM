@@ -33,7 +33,7 @@ jobs:
       - name: Install
         run: |
           git submodule update --init --recursive
-          make
+          make TARGET=NEHALEM
           python setup.py bdist_wheel
           pip install dist/*.whl
 
