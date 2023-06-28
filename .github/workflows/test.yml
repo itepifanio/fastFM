@@ -34,8 +34,7 @@ jobs:
         run: |
           git submodule update --init --recursive
           make TARGET=NEHALEM
-          python setup.py bdist_wheel
-          pip install dist/*.whl
+          pip install .
 
       - name: Test
         run: |
