@@ -1,3 +1,6 @@
+# custom
+venv
+build
 # C
 *.swp
 *.o
