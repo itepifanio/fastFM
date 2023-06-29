@@ -2,11 +2,9 @@ name: test-environment
 channels:
   - defaults
 dependencies:
-  - python=${{ matrix.python-version }}
   - cython
   - numpy
   - pandas
   - scipy
   - scikit-learn
   - pytest
-

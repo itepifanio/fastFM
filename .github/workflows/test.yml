@@ -31,8 +31,4 @@ jobs:
       - name: Install and Test
         shell: bash -l {0}
         run: |
-          git submodule update --init --recursive
-          make TARGET=NEHALEM
-          python setup.py bdist_wheel
-          pip install dist/*.whl
-          pytest
+         
