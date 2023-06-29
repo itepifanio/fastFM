@@ -27,12 +27,16 @@ jobs:
 
       - name: Install dependencies
         run: |
+          conda init bash
+          exec bash
           conda create -n test-environment python=${{ matrix.python-version }} cython numpy pandas scipy scikit-learn pytest
-          source activate test-environment
+          conda activate test-environment
 
       - name: Install
         run: |
-          source activate test-environment
+          conda init bash
+          exec bash
+          conda activate test-environment
           git submodule update --init --recursive
           make TARGET=NEHALEM
           python setup.py bdist_wheel
@@ -40,5 +44,7 @@ jobs:
 
       - name: Test
         run: |
-          source activate test-environment
+          conda init bash
+          exec bash
+          conda activate test-environment
           pytest
